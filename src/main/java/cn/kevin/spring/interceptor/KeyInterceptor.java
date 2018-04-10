@@ -1,5 +1,6 @@
-package cn.kevin.spring;
+package cn.kevin.spring.interceptor;
 
+import cn.kevin.spring.annotation.KeyAnnotation;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -22,7 +23,7 @@ import java.lang.reflect.Method;
 @Slf4j
 public class KeyInterceptor {
 
-    @Around(value = "@annotation(cn.kevin.spring.KeyAnnotation)")
+    @Around(value = "@annotation(cn.kevin.spring.annotation.KeyAnnotation)")
     public Object invoke(ProceedingJoinPoint joinPoint) throws Throwable {
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
         Method method = methodSignature.getMethod();

@@ -1,4 +1,4 @@
-package cn.kevin.spring;
+package cn.kevin.spring.annotation;
 
 import java.lang.annotation.*;
 
