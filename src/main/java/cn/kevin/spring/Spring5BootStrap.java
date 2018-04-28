@@ -5,7 +5,6 @@ package cn.kevin.spring;
  * created by yongkang.zhang
  * added at 2018/1/4
  */
-
 public class Spring5BootStrap {
 
 
