@@ -48,4 +48,16 @@ public class DemoApiController {
     public String bindWithRequestBody(@Valid @RequestBody Animal animal) {
         return "dududu";
     }
+
+    /**
+     * 用@RequestBody也可以捕获到BindResult中
+     */
+    @RequestMapping(value = "/aniWithRB")
+    public String aniWithRB(@Valid @RequestBody Animal animal, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "bind error: " + bindingResult.getAllErrors().get(0).getDefaultMessage();
+        }
+
+        return "lalall";
+    }
 }
