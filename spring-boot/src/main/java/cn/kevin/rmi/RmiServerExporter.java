@@ -10,7 +10,7 @@ import org.springframework.remoting.rmi.RmiServiceExporter;
 import javax.annotation.Resource;
 import java.rmi.RemoteException;
 
-@Configuration
+/*@Configuration*/
 @SuppressWarnings("Duplicates")
 public class RmiServerExporter {
 

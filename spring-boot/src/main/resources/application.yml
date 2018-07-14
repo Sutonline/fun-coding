@@ -1,0 +1,6 @@
+spring:
+  config:
+    location: classpath:/application-db.properties,application-dto.yml
+
+user:
+  password: lalala
