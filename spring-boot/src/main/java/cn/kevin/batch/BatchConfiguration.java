@@ -34,9 +34,9 @@ public class BatchConfiguration {
     public StepBuilderFactory stepBuilderFactory;
 
 
-    @Bean
+    /*@Bean
     @ConditionalOnMissingBean
-    @ConditionalOnProperty(prefix = "spring.batch.job", name = "enabled", havingValue = "true", matchIfMissing = true)
+    @ConditionalOnProperty(prefix = "spring.batch.job", name = "enabled", havingValue = "true", matchIfMissing = true)*/
     public JobLauncherCommandLineRunner jobLauncherCommandLineRunner(
             JobLauncher jobLauncher, JobExplorer jobExplorer) {
         return new JobLauncherCommandLineRunner(
