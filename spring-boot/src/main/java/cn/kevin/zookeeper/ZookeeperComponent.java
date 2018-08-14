@@ -4,7 +4,6 @@ import org.apache.zookeeper.*;
 import org.apache.zookeeper.data.Stat;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -14,7 +13,7 @@ import java.util.concurrent.CountDownLatch;
  * @author yongkang.zhang
  * created at 13/08/2018
  */
-@Component
+/*@Component*/
 public class ZookeeperComponent implements Watcher, InitializingBean {
 
     private ZooKeeper zooKeeper;
@@ -38,6 +37,12 @@ public class ZookeeperComponent implements Watcher, InitializingBean {
         connectZookeeper(this.zookeeperConfiguration.getHost());
     }
 
+    /**
+     * session的timeout
+     * @param host 连接主机，comma分割
+     *
+     *
+     */
     public void connectZookeeper(String host) throws Exception {
         int SESSION_TIME_OUT = 2000;
         zooKeeper = new ZooKeeper(host, SESSION_TIME_OUT, this);

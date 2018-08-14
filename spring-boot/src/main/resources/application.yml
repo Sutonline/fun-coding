@@ -7,3 +7,6 @@ user:
 
 zookeeper:
   host: 127.0.0.1:2181
+
+redis:
+  host: 127.0.0.1
