@@ -7,9 +7,6 @@ package cn.kevin.jdk9;
  */
 public interface PrivateInterfaceDemo {
 
-    private String getName() {
-        return "lalal";
-    }
 
     default String getDefaultName() {
         return "default";
