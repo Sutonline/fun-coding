@@ -28,4 +28,6 @@ public class OrderEvent {
     private Date downTime;
 
     private Date storeTime;
+
+    private String threadName;
 }
