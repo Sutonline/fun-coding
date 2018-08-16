@@ -19,6 +19,7 @@ public class DownHandler implements EventHandler<OrderEvent> {
         }
 
         event.setDownTime(new Date());
-        log.info("这里做下传处理, event: {}", event);
+        // log.info("这里做下传处理, event: {}", event);
+        log.info("订单下传, threadName: {}, workPoolThreadName: {}", Thread.currentThread().getName(), event.getThreadName());
     }
 }

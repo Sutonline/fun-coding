@@ -19,7 +19,8 @@ public class ReceiveHandler implements EventHandler<OrderEvent> {
             throw new RuntimeException("来个异常试试？");
         }
         orderEvent.setReceiveTime(new Date());
-        log.info("这里做一下数据处理, 收到的订单是: {}", orderEvent);
-        log.info("receiveHandler, sequence: {}, isEnd: {}", sequence, isEnd);
+        // log.info("这里做一下数据处理, 收到的订单是: {}", orderEvent);
+        // log.info("receiveHandler, sequence: {}, isEnd: {}", sequence, isEnd);
+        log.info("接受处理, threadName: {}, workPoolThreadName: {}", Thread.currentThread().getName(), orderEvent.getThreadName());
     }
 }
