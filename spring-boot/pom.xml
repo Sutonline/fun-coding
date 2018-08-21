@@ -16,6 +16,7 @@
     <properties>
         <jedis.version>2.9.0</jedis.version>
         <disruptor.version>3.4.2</disruptor.version>
+        <hystrix.version>1.5.12</hystrix.version>
     </properties>
 
     <dependencies>
@@ -65,6 +66,11 @@
             <groupId>com.lmax</groupId>
             <artifactId>disruptor</artifactId>
             <version>${disruptor.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.netflix.hystrix</groupId>
+            <artifactId>hystrix-core</artifactId>
+            <version>${hystrix.version}</version>
         </dependency>
     </dependencies>
 
