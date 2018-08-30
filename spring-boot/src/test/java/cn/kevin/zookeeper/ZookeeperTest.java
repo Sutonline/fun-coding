@@ -20,7 +20,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @Slf4j
 public class ZookeeperTest {
 
-    @Autowired
+    /*@Autowired
     private ZookeeperComponent zookeeperComponent;
 
     @Test
@@ -29,5 +29,5 @@ public class ZookeeperTest {
         zookeeperComponent.createNode("/ronda/registry", "1234566");
         String data = zookeeperComponent.getData("/ronda/registry");
         System.out.println(data);
-    }
+    }*/
 }

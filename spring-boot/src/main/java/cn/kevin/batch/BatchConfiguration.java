@@ -23,7 +23,7 @@ import org.springframework.core.io.ClassPathResource;
  * @author yongkang.zhang
  * created at 18/07/2018
  */
-@Configuration
+/*@Configuration*/
 @EnableBatchProcessing
 public class BatchConfiguration {
 

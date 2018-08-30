@@ -11,10 +11,10 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
+import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, BatchAutoConfiguration.class})
-@EnableCircuitBreaker
-@EnableHystrixDashboard
+@ImportResource("spring-job-config.xml")
 public class ManApplication {
 
     @Autowired

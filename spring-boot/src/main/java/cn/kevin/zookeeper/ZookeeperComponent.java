@@ -14,9 +14,9 @@ import java.util.concurrent.CountDownLatch;
  * created at 13/08/2018
  */
 /*@Component*/
-public class ZookeeperComponent implements Watcher, InitializingBean {
+public class ZookeeperComponent /*implements Watcher, InitializingBean */{
 
-    private ZooKeeper zooKeeper;
+    /*private ZooKeeper zooKeeper;
 
     private CountDownLatch countDownLatch = new CountDownLatch(1);
 
@@ -37,12 +37,12 @@ public class ZookeeperComponent implements Watcher, InitializingBean {
         connectZookeeper(this.zookeeperConfiguration.getHost());
     }
 
-    /**
+    *//**
      * session的timeout
      * @param host 连接主机，comma分割
      *
      *
-     */
+     *//*
     public void connectZookeeper(String host) throws Exception {
         int SESSION_TIME_OUT = 2000;
         zooKeeper = new ZooKeeper(host, SESSION_TIME_OUT, this);
@@ -76,31 +76,31 @@ public class ZookeeperComponent implements Watcher, InitializingBean {
         zooKeeper.delete(path, -1);
     }
 
-    /**
+    *//**
      * 获取创建时间
      * @param path node
-     */
+     *//*
     public long getCTime(String path) throws KeeperException, InterruptedException{
         Stat stat = zooKeeper.exists(path, false);
         return stat.getCtime();
     }
 
-    /**
+    *//**
      * 获取某个路径下孩子的数量
      * @param path node
-     */
+     *//*
     public Integer getChildrenNum(String path) throws KeeperException, InterruptedException{
         return zooKeeper.getChildren(path, false).size();
     }
-    /**
+    *//**
      * 关闭连接
      * @throws InterruptedException
-     */
+     *//*
     public void closeConnection() throws InterruptedException{
         if (zooKeeper != null) {
             zooKeeper.close();
         }
-    }
+    }*/
 
 
 }
