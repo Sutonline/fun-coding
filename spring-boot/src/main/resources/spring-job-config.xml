@@ -13,9 +13,27 @@
     <reg:zookeeper id="regCenter" server-lists="192.168.54.30:2181" namespace="dd-job" base-sleep-time-milliseconds="1000"
                    max-sleep-time-milliseconds="3000" max-retries="3" />
 
-    <job:simple id="job1" class="cn.kevin.elasticjob.job.MyElasticJob" cron="0/10 * * * * ?" sharding-total-count="3"
+    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"  destroy-method="close">
+        <property name="dataSourceClassName" value="com.mysql.jdbc.jdbc2.optional.MysqlDataSource"/>
+        <property name="maximumPoolSize" value="5" />
+        <property name="maxLifetime" value="30000" />
+        <property name="idleTimeout" value="30000" />
+        <property name="dataSourceProperties">
+            <props>
+                <prop key="url">jdbc:mysql://localhost:3306/dd-job</prop>
+                <prop key="user">root</prop>
+                <prop key="password">root</prop>
+                <prop key="prepStmtCacheSize">250</prop>
+                <prop key="prepStmtCacheSqlLimit">2048</prop>
+                <prop key="cachePrepStmts">true</prop>
+                <prop key="useServerPrepStmts">true</prop>
+            </props>
+        </property>
+    </bean>
+
+    <job:simple id="job1" class="cn.kevin.elasticjob.job.MyElasticJob" cron="0/10 * * * * ?" sharding-total-count="2"
                 registry-center-ref="regCenter"
-                sharding-item-parameters="0=A, 1=B, 2=C" />
+                sharding-item-parameters="" overwrite="true" event-trace-rdb-data-source="dataSource" />
 
 
 </beans>

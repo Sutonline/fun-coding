@@ -11,6 +11,7 @@ public class MyElasticJob implements SimpleJob {
 
     @Override
     public void execute(ShardingContext shardingContext) {
+        System.out.println("我来执行任务了");
         switch(shardingContext.getShardingItem()) {
             case 0:
                 System.out.println(0);
