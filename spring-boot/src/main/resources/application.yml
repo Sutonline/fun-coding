@@ -21,3 +21,16 @@ management:
     web:
       exposure:
         include: hystrix.stream
+
+
+xxl:
+  job:
+    executor:
+      adminAddress: http://localhost:8080/
+      appname: fun-coding-xxl-executor
+      ip:
+      port: 9999
+      logpath: /data/applogs/xxl-job/jobhandler/
+      logretentiondays: -1
+      accessToken:
+
