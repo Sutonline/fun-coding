@@ -3,48 +3,33 @@ package cn.kevin;
 import cn.kevin.config.EnableAnimal;
 import cn.kevin.mongo.Customer;
 import cn.kevin.mongo.CustomerRepository;
+import cn.kevin.service.HelloService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-@EnableAnimal
+@EnableAspectJAutoProxy
 //@ImportResource("spring-job-config.xml.bak")
-public class ManApplication {
+@Slf4j
+public class ManApplication implements CommandLineRunner {
 
     @Autowired
     private CustomerRepository customerRepository;
+    @Autowired
+    private HelloService helloService;
 
     public static void main(String[] args) {
         SpringApplication.run(ManApplication.class, args);
     }
 
-    /*@Override*/
+    @Override
     public void run(String... args) throws Exception {
-        customerRepository.deleteAll();
-
-        customerRepository.save(new Customer("Alice", "Smith"));
-        customerRepository.save(new Customer("Bob", "Smith"));
-
-        System.out.println("Customers found with findAll()");
-        System.out.println("------------------------------");
-        for (Customer customer : customerRepository.findAll()) {
-            System.out.println(customer);
-        }
-
-        System.out.println();
-
-        // fetch an individual customer
-        System.out.println("Customer found with findByFirstName('Alice'):");
-        System.out.println("--------------------------------");
-        System.out.println(customerRepository.findByFirstName("Alice"));
-
-        System.out.println("Customers found with findByLastName('Smith'):");
-        System.out.println("--------------------------------");
-        for (Customer customer : customerRepository.findByLastName("Smith")) {
-            System.out.println(customer);
-        }
+        log.info("返回结果是: " + helloService.sayHello());
     }
 }
