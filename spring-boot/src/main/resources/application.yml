@@ -34,3 +34,23 @@ xxl:
       logretentiondays: -1
       accessToken:
 
+sharding:
+  jdbc:
+    datasource:
+      names: ds0
+      ds0:
+        type: org.apache.commons.dbcp.BasicDataSource
+        url: jdbc:mysql://127.0.0.1:3306/test?allowMultiQueries=true
+        driver: com.mysql.jdbc.Driver
+        username: root
+        password: 123456
+    config:
+      sharding:
+        tables:
+          user:
+            actualDataNodes: ds0.user_$->{0..1}
+            tableStrategy:
+              inline:
+                shardingColumn: id
+                algorithmExpression: user_$->(order_id %2)
+

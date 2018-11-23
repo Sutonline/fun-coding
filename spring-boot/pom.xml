@@ -35,6 +35,7 @@
         <guava.version>18.0</guava.version>
         <curator.version>4.0.1</curator.version>
         <xxl-job.version>1.9.1</xxl-job.version>
+        <sharding-jdbc.version>2.0.3</sharding-jdbc.version>
     </properties>
 
     <dependencies>
@@ -179,6 +180,26 @@
             <groupId>com.xuxueli</groupId>
             <artifactId>xxl-job-core</artifactId>
             <version>${xxl-job.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.shardingjdbc</groupId>
+            <artifactId>sharding-jdbc-core</artifactId>
+            <version>${sharding-jdbc.version}</version>
+        </dependency>
+<!--        <dependency>
+            <groupId>io.shardingjdbc</groupId>
+            <artifactId>sharding-jdbc-core-spring-boot-starter</artifactId>
+            <version>${sharding-jdbc.version}</version>
+        </dependency>-->
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.3.1</version>
         </dependency>
     </dependencies>
 
