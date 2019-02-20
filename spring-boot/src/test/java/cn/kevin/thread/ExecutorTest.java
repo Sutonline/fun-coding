@@ -20,13 +20,18 @@ public class ExecutorTest {
 	public void test() throws InterruptedException {
 		ThreadFactoryBuilder builder = new ThreadFactoryBuilder();
 		builder.setNameFormat("exec-%d");
-		ExecutorService executor = new ThreadPoolExecutor(2, 2, 300, TimeUnit.SECONDS, new ArrayBlockingQueue<>(1000));
+		ExecutorService executor = new ThreadPoolExecutor(2, 5, 1, TimeUnit.SECONDS, new ArrayBlockingQueue<>(1000));
 
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 10; i++) {
 			executor.submit(() -> {
 				Person person = new Person();
 				person.set();
 				log.info("输出结果: {}", person.get());
+				try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 			});
 		}
 
