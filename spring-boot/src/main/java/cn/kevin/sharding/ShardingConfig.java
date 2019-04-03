@@ -19,10 +19,10 @@ import java.util.Properties;
  * @author yongkang.zhang
  * created at 21/11/2018
  */
-@Configuration
+/*@Configuration*/
 public class ShardingConfig {
 
-    @Bean
+    /*@Bean*/
     public DataSource dataSource() throws SQLException {
         ShardingRuleConfiguration shardingRuleConfiguration = new ShardingRuleConfiguration();
         shardingRuleConfiguration.setDefaultDataSourceName("ds0");

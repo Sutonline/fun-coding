@@ -2,11 +2,10 @@ spring:
   config:
     location: classpath:/application-db.properties,application-dto.yml
   datasource:
-    hikari:
-      password: root
-      username: root
-      driver-class-name: com.mysql.jdbc.Driver
-      jdbc-url: jdbc:mysql://127.0.0.1:3306/dd-job?allowMultiQueries=true
+    password: root
+    username: root
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test?allowMultiQueries=true
 
 user:
   password: lalala
