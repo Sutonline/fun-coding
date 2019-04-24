@@ -1,6 +1,7 @@
 package cn.kevin.advice;
 
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
@@ -20,6 +21,15 @@ public class HelloServiceAspect {
 
     @Around("execution(* cn.kevin.service..*(..))")
     public Object invoke(ProceedingJoinPoint jp) throws Throwable {
+        /*
+         * signature 是切点的签名
+         * 比如:
+         * signature
+         * `String cn.kevin.service.HelloService.sayHello()`
+         * 获取declaringTypeName是
+         * `cn.kevin.service.HelloService`
+         */
+        Signature signature = jp.getSignature();
         executorService.submit(() -> {
             try {
                 return jp.proceed();

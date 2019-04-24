@@ -6,15 +6,18 @@ import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration;
 import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 import javax.annotation.Resource;
 
 @SpringBootApplication(exclude = {MongoAutoConfiguration.class, MongoDataAutoConfiguration.class})
 //@ImportResource("spring-job-config.xml.bak")
 @MapperScan("cn.kevin.mybatis")
+@EnableAspectJAutoProxy
 @Slf4j
 public class ManApplication implements CommandLineRunner {
 
@@ -30,12 +33,6 @@ public class ManApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Student student = new Student();
-		student.setName("hanhanhan");
-		mapper.insert(student);
 
-		Student dbStu = mapper.listById(1);
-		int update = mapper.update(dbStu.getId(), dbStu.getName());
-		log.info("更新结果是: {}", update);
 	}
 }
