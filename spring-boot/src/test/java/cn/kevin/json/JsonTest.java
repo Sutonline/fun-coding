@@ -14,8 +14,9 @@ public class JsonTest {
 	@Test
 	public void jsonTest() {
 		Person person = new Person();
-		person.setName("张三");
 		person.setAge(3);
+		person.setName("张三");
+		person.setAaName("李四");
 		person.setBirthday(new Date());
 
 		System.out.println(JSON.toJSONString(person));
