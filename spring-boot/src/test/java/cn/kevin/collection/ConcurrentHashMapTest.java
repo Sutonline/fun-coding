@@ -2,6 +2,7 @@ package cn.kevin.collection;
 
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.util.Hashtable;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -44,5 +45,14 @@ public class ConcurrentHashMapTest {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+	}
+
+	@Test
+	public void name() {
+		BigDecimal bigDecimal = new BigDecimal(2.344);
+		int i = bigDecimal.intValue();
+		System.out.println(i);
+		int ij = bigDecimal.intValueExact();
+		System.out.println(ij);
 	}
 }
