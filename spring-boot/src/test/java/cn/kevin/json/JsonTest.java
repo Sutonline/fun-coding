@@ -1,11 +1,11 @@
 package cn.kevin.json;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import org.junit.Test;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author yongkang.zhang
@@ -37,6 +37,17 @@ public class JsonTest {
 //		modify(result);
 
 		System.out.println(result);
+	}
+
+	@Test
+	public void testJsonArray() {
+		List<Object> list = new ArrayList<>();
+		list.add("abc");
+		Person person = new Person();
+		person.setAaName("张三");
+		list.add(JSON.toJSON(person));
+		JSONArray array = new JSONArray(list);
+		System.out.println(JSON.toJSONString(array, SerializerFeature.WriteClassName));
 	}
 
 	private <T> void parse(Map<String, String> data, T result) {
