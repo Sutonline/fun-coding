@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  * @author yongkang.zhang
  * created at 18/07/2018
  */
-@Component
+// @Component
 @Slf4j
 public class AppRunner implements CommandLineRunner {
 

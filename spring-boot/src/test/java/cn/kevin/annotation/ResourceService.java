@@ -10,11 +10,13 @@ import javax.annotation.Resource;
  */
 @Service(value= "resourceService")
 public class ResourceService {
+/*
 
 	@Resource
-	private HelloService welcomeServiceImpl;
+	private HelloService helloServiceImpl;
 
 	@Resource
 	private cn.kevin.annotation.sub.HelloService helloService;
+*/
 
 }
