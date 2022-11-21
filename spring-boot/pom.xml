@@ -34,7 +34,7 @@
         <elastic.job.version>2.1.5</elastic.job.version>
         <guava.version>18.0</guava.version>
         <curator.version>4.0.1</curator.version>
-        <xxl-job.version>1.9.1</xxl-job.version>
+        <xxl-job.version>2.3.1</xxl-job.version>
         <sharding-jdbc.version>2.0.3</sharding-jdbc.version>
     </properties>
 
